@@ -4,5 +4,17 @@
         <name>ApiDevBP</name>
     </assembly>
     <members>
+        <member name="T:ApiDevBP.Migrations.Inicial">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiDevBP.Migrations.Inicial.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiDevBP.Migrations.Inicial.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:ApiDevBP.Migrations.Inicial.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
     </members>
 </doc>

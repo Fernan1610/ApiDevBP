@@ -1,5 +1,6 @@
 using ApiDevBP.Entities;
 using ApiDevBP.Models;
+using ApiDevBP.Models.User.DTO;
 using Microsoft.AspNetCore.Mvc;
 using SQLite;
 using System.Reflection;
