@@ -1,5 +1,11 @@
+using ApiDevBP.Data;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using ApiDevBP.Models.User;
+using ApiDevBP;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -8,6 +14,9 @@ Log.Logger = new LoggerConfiguration()
     .CreateBootstrapLogger();
 
 builder.Services.AddControllers();
+builder.Services.AddDbContexts(builder.Configuration);
+builder.Services.InjectDependencies(builder.Configuration);
+builder.Services.AddAutoMapper(typeof(Program));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
