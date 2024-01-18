@@ -31,7 +31,7 @@ namespace ApiDevBP.Models.User
                 return true;
             }
 
-            // El usuario no fue encontrado
+           // El usuario no fue encontrado
             return false;
         }
 
@@ -83,7 +83,7 @@ namespace ApiDevBP.Models.User
             return null;
         }
 
-        public int SaveUser(UserModel user)
+        public int SaveUser(UserDTO user)
         {
 
             var result =_db.Insert(new UserEntity()

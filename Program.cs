@@ -16,7 +16,7 @@ Log.Logger = new LoggerConfiguration()
 builder.Services.AddControllers();
 builder.Services.AddDbContexts(builder.Configuration);
 builder.Services.InjectDependencies(builder.Configuration);
-
+builder.Services.AddAutoMapper(typeof(Program));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

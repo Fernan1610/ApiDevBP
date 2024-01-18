@@ -3,6 +3,9 @@ using ApiDevBP.Models.User;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SQLite;
+using AutoMapper;
+using Microsoft.AspNetCore.Hosting;
+using ApiDevBP.Entities;
 namespace ApiDevBP
 {
     public static class ProgramsExtensions
@@ -21,6 +24,23 @@ namespace ApiDevBP
                 var connectionString = configuration.GetConnectionString("DefaultConnection");
                 return new SQLiteConnection(connectionString);
             });
+            services.AddScoped<UserProfile>();
+
+
+
+
+        }
+
+        public static void ConfigureAutoMapper(this IServiceCollection services)
+        {
+
+            var mappingConfig = new MapperConfiguration(mc =>
+            {
+               
+                mc.AddProfile(new UserProfile());
+            });
+            var mapper = mappingConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
         }
     }

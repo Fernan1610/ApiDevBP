@@ -5,7 +5,7 @@ namespace ApiDevBP.Models.User
 {
     public interface IUserRepository
     {
-        int SaveUser(UserModel user);
+        int SaveUser(UserDTO user);
         ICollection<UserModel> GetUsers();
 
         UserModel EditUser(int UserId, string name, string lastname);
