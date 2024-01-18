@@ -3,6 +3,8 @@ using Microsoft.OpenApi.Models;
 using Serilog;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using ApiDevBP.Models.User;
+using ApiDevBP;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,9 +14,9 @@ Log.Logger = new LoggerConfiguration()
     .CreateBootstrapLogger();
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"))
-);
+builder.Services.AddDbContexts(builder.Configuration);
+builder.Services.InjectDependencies(builder.Configuration);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

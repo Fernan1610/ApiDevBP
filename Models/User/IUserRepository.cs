@@ -5,7 +5,10 @@ namespace ApiDevBP.Models.User
 {
     public interface IUserRepository
     {
-        Task<IActionResult> SaveUser(UserModel user);
-        Task<IActionResult> GetUsers();
+        int SaveUser(UserModel user);
+        ICollection<UserModel> GetUsers();
+
+        UserModel EditUser(int UserId, string name, string lastname);
+        bool DeleteUser(int UserId);
     }
 }
